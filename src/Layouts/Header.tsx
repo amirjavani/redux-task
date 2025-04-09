@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { RootState } from "../store/store";
 import { toggleTheme } from "../store/Slices/themeSlice";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
+import { logout } from "../store/Slices/authSlice";
 
 function Header() {
   const isDark = useSelector((state: RootState) => state?.theme?.isDark);
@@ -18,7 +19,7 @@ function Header() {
           Login
         </Link>
         <Link to={"/home"}>home</Link>
-        <p>Logout</p>
+        <p className="cursor-pointer" onClick={()=>dispatch(logout())}>Logout</p>
       </div>
 
       <button
